@@ -1,55 +1,79 @@
+@font-face { /* This is a font used in Team Fortess 2. Source: https://www.dafont.com/tf2-build.font */
+  font-family: Tf2Build;
+  src: url(tf2build.ttf);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+  overflow-y: auto; /* Ensure vertical scrolling */
+}
+
+h1{
+  font-family: Tf2Build;
+  text-decoration: underline; 
+  text-underline-offset: 4px;
+}
+
+img{
+  border-radius: 10px;
+}
 .main-content{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5%;
-  padding-left: 1%;
-  padding-right: 1% ;
+  margin: 5% auto 0;
   
   background-color: rgb(0, 0, 255);
 
   width: 20%;
+  padding: 1%;
   min-height: 10px;
   
-  border-style: solid;
+  border: 5px solid chartreuse;
   border-radius: 10px;
-  border-width: 5px;
-  border-color: chartreuse;
 
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.main-content img {
+  max-width: 100%; /* Ensures the image width does not exceed the div's width */
+  height: auto; /* Maintains the aspect ratio of the image */
+  display: block; /* Removes any extra spacing below the image */
 }
 
 /* This creates the background with layered effects */
 
 .background {
-  position: fixed;
+  position: fixed; /* Keeps it fixed to the viewport */
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-
   width: 100%;
   height: 100%;
-  background-color: rgb(42, 42, 43);
+  background-color: rgb(42, 42, 43); /* Gray background */
+  z-index: -1; /* Ensures it stays behind the content */
+  pointer-events: none; /* Prevents it from blocking interactions */
+  overflow: hidden; /* Ensures the background doesn't clip */
 }
 
 .background::after {
   content: '';
   position: absolute;
-
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-
-  background-image: url('images/stars.png');
-  background-size: 10%;
-  opacity: 0.03;
-  animation: pan 100s linear infinite;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/stars.png'); /* Path to your stars image */
+  background-size: 10%; /* Keeps the original size of the stars image */
+  background-repeat: repeat; /* Repeats the stars image */
+  background-position: top left; /* Starts the stars from the top-left corner */
+  opacity: 0.05; /* Adjusts the visibility of the stars */
+  animation: pan 100s linear infinite; /* Keeps the stars moving */
   z-index: -1;
 }
 
@@ -61,6 +85,13 @@
     background-position: 100% -50%;
   }
   
+}
+
+.content {
+  position: relative;
+  z-index: 1; /* Keeps it above the background */
+  width: 100%;
+  min-height: 100vh; /* Ensures it covers the full viewport height */
 }
 
 /* CRT FILTER: https://aleclownes.com/2017/02/01/crt-display.html */
