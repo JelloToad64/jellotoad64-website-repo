@@ -1,107 +1,11 @@
-@font-face {
-    font-family: MannCo;
-    src: url("fonts/tf2build.ttf");
-  }
-  
-  /*
-  @font-face {
-    font-family: Ghoul;
-    src: url("ghosts-n-goblins-amstrad.ttf");
-  }  Dead Font */
+html{
+  background-image: url("images/stars.png");
+  background-size: 10%;
+}
 
-  html{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight:bold;
-  }
-
-  body {
-    color: white;
-    background-image: url("images/wallpaper.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-  }
+/* CRT FILTER: https://aleclownes.com/2017/02/01/crt-display.html */
   
-  img.style {
-    width: 60%;
-    height: auto;
-    aspect-ratio: 1/1;
-    overflow: hidden;
-    border-radius: 20px;
-    object-fit: cover;
-    border: solid, 5px, #00c8b4;
-    box-shadow: 0 0 10px #94fff4;
-  }
-  
-  h1 {
-    text-decoration: underline;
-    font-family: MannCo;
-    margin: 2px;
-  }
-  
-  h2 {
-    font-family: MannCo;
-    margin: 2px;
-  }
-  
-  table {
-    margin-top: 5px;
-    margin: auto;
-    background-color: #9732a8;
-    border-spacing: 10px;
-  }
-
-  
-  table.main {
-    margin-top: 5px;
-    border: solid, 5px, #4b1255;
-    border-radius: 15px;
-    box-shadow: 0 0 10px #dc44f7;
-    width: 20%;
-  }
-  
-  th,
-  tr {
-    background-color: inherit;
-  }
-  
-  a:link, a:visited{
-    color: #006eff
-  }
-
-  a:hover{
-    color: #001ea6;
-  }
-
-  a:active{
-    color: #00bbff;
-  }
-
-  a:link.button,
-  a:visited.button {
-    background-color: #00c8b4;
-    color: white;
-    border-radius: 25px;
-    padding: 7px 15px;
-    text-decoration-line: none;
-  }
-  
-  a:hover.button {
-    background-color: #009b8c;
-  }
-  
-  a:active.button {
-    background-color: #00ffe6;
-  }
-  
-  ul {
-    text-align: left;
-    margin: 3px;
-  }
-  
-  /* CRT FILTER: https://aleclownes.com/2017/02/01/crt-display.html */
-  
-  @keyframes flicker {
+@keyframes flicker {
     0% {
       opacity: 0.27861;
     }
@@ -255,7 +159,7 @@
   .crt::after {
     content: " ";
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
@@ -269,7 +173,7 @@
   .crt::before {
     content: " ";
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
@@ -288,4 +192,4 @@
   .crt {
     animation: textShadow 1.6s infinite;
   }
-  
+    /* CRT FILTER: https://aleclownes.com/2017/02/01/crt-display.html */
