@@ -12,15 +12,10 @@ html, body {
   overflow-y: auto; /* Ensure vertical scrolling */
 }
 
-h1{
-  font-family: Tf2Build;
-  text-decoration: underline; 
-  text-underline-offset: 4px;
-}
-
 img{
   border-radius: 10px;
 }
+
 .main-content{
   display: flex;
   flex-direction: column;
@@ -31,7 +26,7 @@ img{
   
   background-color: rgb(0, 0, 255);
 
-  width: 20%;
+  width: 40%;
   padding: 1%;
   min-height: 10px;
   
@@ -39,6 +34,12 @@ img{
   border-radius: 10px;
 
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.main-content h1{
+  font-family: Tf2Build;
+  text-decoration: underline; 
+  text-underline-offset: 4px;
 }
 
 .main-content img {
