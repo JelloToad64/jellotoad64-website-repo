@@ -1,57 +1,64 @@
-@font-face { /* This is a font used in Team Fortess 2. Source: https://www.dafont.com/tf2-build.font */
+/* Font face for Team Fortress 2 font */
+@font-face {
   font-family: Tf2Build;
   src: url(tf2build.ttf);
 }
 
+/* Global styles */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100%;
-  overflow-x: hidden; /* Prevents horizontal scrolling */
-  overflow-y: auto; /* Ensure vertical scrolling */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
-img{
+img {
   border-radius: 10px;
+  aspect-ratio: 1/1;
 }
 
-.main-content{
+p {
+  color: white;
+}
+
+/* Main content container */
+.main-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+
   margin: 5% auto 0;
-  
   background-color: rgb(0, 0, 255);
 
-  width: 40%;
+  width: 30%;
   padding: 1%;
   min-height: 10px;
-  
+
   border: 5px solid chartreuse;
   border-radius: 10px;
 
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
 }
 
-.main-content h1{
+.main-content h1 {
   font-family: Tf2Build;
-  text-decoration: underline; 
+  text-decoration: underline;
   text-underline-offset: 4px;
 }
 
 .main-content img {
-  max-width: 100%; /* Ensures the image width does not exceed the div's width */
-  height: auto; /* Maintains the aspect ratio of the image */
-  display: block; /* Removes any extra spacing below the image */
+  max-width: 100%; /* Ensures the image width does not exceed the container */
+  height: auto; /* Maintains the aspect ratio */
+  display: block; /* Removes extra spacing below the image */
+  margin: 0 auto; /* Centers the image horizontally */
 }
 
-/* This creates the background with layered effects */
-
+/* Background with layered effects */
 .background {
-  position: fixed; /* Keeps it fixed to the viewport */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -59,7 +66,7 @@ img{
   background-color: rgb(42, 42, 43); /* Gray background */
   z-index: -1; /* Ensures it stays behind the content */
   pointer-events: none; /* Prevents it from blocking interactions */
-  overflow: hidden; /* Ensures the background doesn't clip */
+  overflow: hidden;
 }
 
 .background::after {
@@ -70,12 +77,13 @@ img{
   width: 100%;
   height: 100%;
   background-image: url('images/stars.png'); /* Path to your stars image */
-  background-size: 10%; /* Keeps the original size of the stars image */
-  background-repeat: repeat; /* Repeats the stars image */
+  background-size: 10%; /* Keeps the stars small */
+  background-repeat: repeat; /* Repeats the stars */
   background-position: top left; /* Starts the stars from the top-left corner */
-  opacity: 0.05; /* Adjusts the visibility of the stars */
-  animation: pan 100s linear infinite; /* Keeps the stars moving */
-  z-index: -1;
+  opacity: 1; /* Adjusts the visibility of the stars */
+  animation: pan 100s linear infinite; /* Smooth panning animation */
+  z-index: -2;
+
 }
 
 @keyframes pan {
@@ -83,11 +91,11 @@ img{
     background-position: 0% 0%;
   }
   100% {
-    background-position: 100% -50%;
+    background-position: 100% -50%; /* Adjust the movement direction */
   }
-  
 }
 
+/* Content container */
 .content {
   position: relative;
   z-index: 1; /* Keeps it above the background */
@@ -248,40 +256,42 @@ img{
         -2.6208764473832513px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
     }
   }
-  .crt::after {
-    content: " ";
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(18, 16, 16, 0.1);
-    opacity: 0;
-    z-index: 2;
-    pointer-events: none;
-    animation: flicker 0.15s infinite;
-  }
-  .crt::before {
-    content: " ";
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-      linear-gradient(
-        90deg,
-        rgba(255, 0, 0, 0.06),
-        rgba(0, 255, 0, 0.02),
-        rgba(0, 0, 255, 0.06)
-      );
-    z-index: 2;
-    background-size: 100% 2px, 3px 100%;
-    pointer-events: none;
-  }
-  .crt {
-    animation: textShadow 1.6s infinite;
-  }
-    /* CRT FILTER: https://aleclownes.com/2017/02/01/crt-display.html */
+.crt::after {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  animation: flicker 0.15s infinite;
+}
+
+.crt::before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+.crt {
+  animation: textShadow 1.6s infinite;
+}
+/* CRT FILTER: https://aleclownes.com/2017/02/01/crt-display.html */
