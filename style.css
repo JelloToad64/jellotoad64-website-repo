@@ -51,14 +51,14 @@ p {
 
 .main-content img {
   max-width: 100%; /* Ensures the image width does not exceed the container */
-  height: auto; /* Maintains the aspect ratio */
+  height: auto;
   display: block; /* Removes extra spacing below the image */
   margin: 0 auto; /* Centers the image horizontally */
 }
 
 /* Background with layered effects */
 .background {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -71,7 +71,7 @@ p {
 
 .background::after {
   content: '';
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -80,7 +80,7 @@ p {
   background-size: 10%; /* Keeps the stars small */
   background-repeat: repeat; /* Repeats the stars */
   background-position: top left; /* Starts the stars from the top-left corner */
-  opacity: 1; /* Adjusts the visibility of the stars */
+  opacity: 0.1; /* Adjusts the visibility of the stars */
   animation: pan 100s linear infinite; /* Smooth panning animation */
   z-index: -2;
 
