@@ -6,6 +6,8 @@
 
 /* Global styles */
 html, body {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -21,6 +23,35 @@ img {
 
 p {
   color: white;
+}
+
+a:link, a:visited{
+  color: #006eff
+}
+
+a:hover{
+  color: #001ea6;
+}
+
+a:active{
+  color: #00bbff;
+}
+
+a:link.button,
+a:visited.button {
+  background-color: #00c8b4;
+  color: white;
+  border-radius: 25px;
+  padding: 7px 15px;
+  text-decoration-line: none;
+}
+
+a:hover.button {
+  background-color: #009b8c;
+}
+
+a:active.button {
+  background-color: #00ffe6;
 }
 
 /* Main content container */
@@ -45,6 +76,7 @@ p {
 
 .main-content h1 {
   font-family: Tf2Build;
+  color: white;
   text-decoration: underline;
   text-underline-offset: 4px;
 }
