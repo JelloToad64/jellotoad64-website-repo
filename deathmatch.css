@@ -64,12 +64,12 @@ a:active.button {
 /* Button for deathmatch page */
 
 .image-hover{
-	content: url("images/win95pc.png");
+	content: url("images/win95doom.png");
 }
 
 
 .image-hover:hover {
-  content: url("images/win95doom.png");
+  content: url("images/win95pc.png");
 }
 
 
