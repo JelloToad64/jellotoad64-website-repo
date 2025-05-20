@@ -88,6 +88,15 @@ a:active.button {
   margin: 0 auto; /* Centers the image horizontally */
 }
 
+.image-hover{
+	content: url("images/win95pc.png");
+}
+
+
+.image-hover:hover {
+  content: url("images/win95doom.png");
+}
+
 /* Background with layered effects */
 .background {
   position: fixed;
