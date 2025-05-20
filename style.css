@@ -4,20 +4,6 @@
   src: url(tf2build.ttf);
 }
 
-/* Mobile mode */
-
-@media (max-width: 768px) {
-  .main-content {
-    width: 90%; /* Expands on mobile but stays the same on PC */
-    padding: 5%;
-    margin: 10% auto 0;
-  }
-
-  .background::after {
-    background-size: 50%; /* Only increases star background on mobile */
-  }
-}
-
 /* Global styles */
 html, body {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -112,10 +98,6 @@ a:active.button {
 .image-hover:hover {
   content: url("images/win95doom.png");
 }
-
-
-
-
 
 /* Background with layered effects */
 .background {
