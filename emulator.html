@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html class="crt">
+  <head>
+    <title>Game</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <table class="main">
+        <th>
+          <tr>
+            <td><h2>Super Ghosts and Goblins</h2></td>
+          </tr>
+          <tr><td>
+            <p>
+              A classic game from the SNES, Super Ghoul's and Ghost's is a tricky game to play. Two hits before losing a life, and 9 long levels to trek, filled with monsters and traps to impeade on your progress. Good Luck!</p></th>
+            </p>
+          </td>
+          </tr>
+        </th>
+        <th> 
+          <tr>
+            <td><div id="emul"></div></td>
+            <script>
+              var NepPlayer = "#emul";
+
+              var NepEmu = "snes";
+
+              var NepEmuAR = "auto";
+
+              var NepColor = "#9732a8";
+
+              var NepLang = "en";
+
+              var NepMaxWidth = "960px";
+
+              var gameUrl = "super_ghouls_and_ghosts.smc";
+
+              var NjsScript = document.createElement("script");
+
+              NjsScript.src = "//mem.neptunjs.com/njs/njsLoader.js";
+
+              document.body.appendChild(NjsScript);
+            </script>
+          </tr>
+          <tr>
+            <a class="button" href="index.html">Main Page</a>
+          </tr>
+        </th>
+    </table>
+  </body>
+</html>

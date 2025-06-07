@@ -1,0 +1,15 @@
+{
+  "name": "toad64-info-website",
+  "version": "1.0.0",
+  "description": "personal website for Toad64",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve"
+  },
+  "keywords": ["html", "css"],
+  "author": "Toad64",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "11.2.0"
+  }
+}
