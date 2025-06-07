@@ -1,2 +1,2 @@
-<h1>README</h1>
-<p>A website im designing for myself. currently not nice to use on mobile, first i plan to finish the site, then work on mobile.</p>
+<h1>IMPORTANT</h1>
+<p>This is the old website, before the master branch, all the old items reside here. </p>
