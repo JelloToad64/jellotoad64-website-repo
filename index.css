@@ -27,11 +27,6 @@ a:active.button {
   background-color: #00ffe6;
 }
 
-.profile img {
-  border-radius: 15px;
-  aspect-ratio: 1/1;
-}
-
 /* Main content container */
 .main-content {
   display: flex;
