@@ -24,6 +24,29 @@ p, h1 {
   color: white;
 }
 
+/* menu buttons */
+
+.image-hover-doom, .image-hover-dead{
+	content: url("images/win95pc.png");
+}
+
+.image-hover-home {
+  content: url("images/win95home.png");
+}
+
+.image-hover-doom:hover {
+  content: url("images/win95doom.png");
+}
+
+.image-hover-dead:hover {
+  content: url("images/win95dead.png");
+}
+
+.image-hover-home:hover {
+  content: url("images/win95home-hover.png");
+}
+
+
 
 /* CRT FILTER: https://aleclownes.com/2017/02/01/crt-display.html */
 
