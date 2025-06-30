@@ -16,11 +16,6 @@ html, body {
   overflow-y: auto;
 }
 
-.profile img {
-  border-radius: 10px;
-  aspect-ratio: 1/1;
-}
-
 img {
   padding: 5px;
 }
