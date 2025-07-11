@@ -61,6 +61,23 @@ a:active.button {
   margin: 0 auto;
 }
 
+.iframe-container {
+  display: inline-block;
+  width: 500px; /* Adjust width to fit your design */
+  height: 75px;
+  overflow: hidden;
+  position: relative;
+}
+
+.iframe-container iframe {
+  transform: scale(0.5);
+  transform-origin: top left;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
 
 /* Background with layered effects */
 .background {
