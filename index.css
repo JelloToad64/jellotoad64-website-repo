@@ -77,7 +77,25 @@ a:active.button {
   left: 0;
 }
 
-
+.tetrio-widget {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 1em;
+    border-radius: 12px;
+    margin-top: 1em;
+    color: #00ffcc;
+    font-family: monospace;
+    box-shadow: 0 0 10px #00ffcc55;
+}
+.tetrio-widget h2 {
+    margin-bottom: 0.5em;
+}
+.tetrio-widget ul {
+    list-style: none;
+    padding: 0;
+}
+.tetrio-widget li {
+    margin: 0.2em 0;
+}
 
 /* Background with layered effects */
 .background {
