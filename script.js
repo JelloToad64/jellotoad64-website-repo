@@ -3,7 +3,7 @@ async function loadToad64Stats() {
   statsContainer.innerText = "Loading...";
 
   try {
-    const res = await fetch("https://tetrio-toad64-proxy.onrender.com/toad64");
+    const res = await fetch("https://tetr-io-proxy.onrender.com/toad64");
     const data = await res.json();
     const user = data.data.user;
 
