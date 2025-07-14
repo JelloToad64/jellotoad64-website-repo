@@ -1,0 +1,378 @@
+/* === Global Reset === */
+* {
+  box-sizing: border-box;
+}
+.navbar {
+  position: fixed;            /* Stick it to the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #0d001a;
+  border-bottom: 3px solid #c84fff;
+  box-shadow: 0 0 15px #c84fff88;
+
+  padding: 0.5rem 1rem;        /* Smaller padding to tighten it up */
+  margin: 0;
+}
+
+.navbar .logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #00ffe6;
+  text-shadow: 0 0 10px #00ffe6, 0 0 20px #00ffe655;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.navbar nav a {
+  margin-left: 2rem;
+  text-decoration: none;
+  color: #c84fff;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  text-shadow: 0 0 5px #c84fff;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.navbar nav a:hover {
+  color: #00ffe6;
+  text-shadow: 0 0 10px #00ffe6, 0 0 20px #00ffe655;
+}
+
+/* Optional: Make it stack on smaller screens */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar nav {
+    margin-top: 1rem;
+  }
+
+  .navbar nav a {
+    margin: 0.5rem 1rem 0 0;
+  }
+}
+
+body {
+  background: linear-gradient(270deg, #2a003f, #0d001a, #350040, #0d001a);
+  background-size: 600% 600%;
+  animation: scrollBackground 30s ease infinite;
+  color: #f8f0ff;
+  font-family: 'Orbitron', sans-serif;
+  padding: 2rem;
+}
+
+@keyframes scrollBackground {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === Scrolling Star Background === */
+.background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: #1a001f;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.background::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url('images/stars.png');
+  background-size: 10%;
+  background-repeat: repeat;
+  background-position: top left;
+  opacity: 0.08;
+  animation: pan 120s linear infinite;
+  z-index: -2;
+}
+
+@keyframes pan {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 100% -50%; }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* === Container Layout === */
+.container {
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1200px;
+  padding-top: 30px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1000px) {
+  .container { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .container { grid-template-columns: 1fr; }
+}
+
+/* === Neon Boxes === */
+.box {
+max-width: 400px;
+max-height: 400px;
+  background: #1a1a1a;
+  border: 5px solid #c84fff;        /* Purple border */
+  border-left-color: #00ffe6;       /* Cyan left border only */
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+
+  box-shadow:
+    0 0 12px #c84fff,              /* Purple glow all around */
+    0 0 24px #c84fff55,            /* Softer purple bloom */
+    -6px 0 12px #00ffe6;           /* Cyan directional glow (left only) */
+
+  transition: transform 0.2s ease;
+}
+
+.box h1 {
+  color: #00ffe6;
+  text-shadow: 0 0 8px #00ffe6;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.box p {
+  color: #d4faff;
+  text-shadow: 0 0 6px #00ffe6;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* === Neon Buttons (Cyan) === */
+.button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #0d0d0d;
+  background: #00ffe6;
+  border: 2px solid #00ffe6;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 0 12px #00ffe6, 0 0 24px #00ffe680;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background: #00cfc9;
+  transform: scale(1.03);
+}
+
+/* CRT FILTER: https://aleclownes.com/2017/02/01/crt-display.html */
+
+@keyframes flicker {
+    0% {
+      opacity: 0.27861;
+    }
+    5% {
+      opacity: 0.34769;
+    }
+    10% {
+      opacity: 0.23604;
+    }
+    15% {
+      opacity: 0.90626;
+    }
+    20% {
+      opacity: 0.18128;
+    }
+    25% {
+      opacity: 0.83891;
+    }
+    30% {
+      opacity: 0.65583;
+    }
+    35% {
+      opacity: 0.67807;
+    }
+    40% {
+      opacity: 0.26559;
+    }
+    45% {
+      opacity: 0.84693;
+    }
+    50% {
+      opacity: 0.96019;
+    }
+    55% {
+      opacity: 0.08594;
+    }
+    60% {
+      opacity: 0.20313;
+    }
+    65% {
+      opacity: 0.71988;
+    }
+    70% {
+      opacity: 0.53455;
+    }
+    75% {
+      opacity: 0.37288;
+    }
+    80% {
+      opacity: 0.71428;
+    }
+    85% {
+      opacity: 0.70419;
+    }
+    90% {
+      opacity: 0.7003;
+    }
+    95% {
+      opacity: 0.36108;
+    }
+    100% {
+      opacity: 0.24387;
+    }
+  }
+  @keyframes textShadow {
+    0% {
+      text-shadow: 0.4389924193300864px 0 1px rgba(0, 30, 255, 0.5),
+        -0.4389924193300864px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    5% {
+      text-shadow: 2.7928974010788217px 0 1px rgba(0, 30, 255, 0.5),
+        -2.7928974010788217px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    10% {
+      text-shadow: 0.02956275843481219px 0 1px rgba(0, 30, 255, 0.5),
+        -0.02956275843481219px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    15% {
+      text-shadow: 0.40218538552878136px 0 1px rgba(0, 30, 255, 0.5),
+        -0.40218538552878136px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    20% {
+      text-shadow: 3.4794037899852017px 0 1px rgba(0, 30, 255, 0.5),
+        -3.4794037899852017px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    25% {
+      text-shadow: 1.6125630401149584px 0 1px rgba(0, 30, 255, 0.5),
+        -1.6125630401149584px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    30% {
+      text-shadow: 0.7015590085143956px 0 1px rgba(0, 30, 255, 0.5),
+        -0.7015590085143956px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    35% {
+      text-shadow: 3.896914047650351px 0 1px rgba(0, 30, 255, 0.5),
+        -3.896914047650351px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    40% {
+      text-shadow: 3.870905614848819px 0 1px rgba(0, 30, 255, 0.5),
+        -3.870905614848819px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    45% {
+      text-shadow: 2.231056963361899px 0 1px rgba(0, 30, 255, 0.5),
+        -2.231056963361899px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    50% {
+      text-shadow: 0.08084290417898504px 0 1px rgba(0, 30, 255, 0.5),
+        -0.08084290417898504px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    55% {
+      text-shadow: 2.3758461067427543px 0 1px rgba(0, 30, 255, 0.5),
+        -2.3758461067427543px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    60% {
+      text-shadow: 2.202193051050636px 0 1px rgba(0, 30, 255, 0.5),
+        -2.202193051050636px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    65% {
+      text-shadow: 2.8638780614874975px 0 1px rgba(0, 30, 255, 0.5),
+        -2.8638780614874975px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    70% {
+      text-shadow: 0.48874025155497314px 0 1px rgba(0, 30, 255, 0.5),
+        -0.48874025155497314px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    75% {
+      text-shadow: 1.8948491305757957px 0 1px rgba(0, 30, 255, 0.5),
+        -1.8948491305757957px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    80% {
+      text-shadow: 0.0833037308038857px 0 1px rgba(0, 30, 255, 0.5),
+        -0.0833037308038857px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    85% {
+      text-shadow: 0.09769827255241735px 0 1px rgba(0, 30, 255, 0.5),
+        -0.09769827255241735px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    90% {
+      text-shadow: 3.443339761481782px 0 1px rgba(0, 30, 255, 0.5),
+        -3.443339761481782px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    95% {
+      text-shadow: 2.1841838852799786px 0 1px rgba(0, 30, 255, 0.5),
+        -2.1841838852799786px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+    100% {
+      text-shadow: 2.6208764473832513px 0 1px rgba(0, 30, 255, 0.5),
+        -2.6208764473832513px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
+    }
+  }
+.crt::after {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  animation: flicker 0.15s infinite;
+}
+
+.crt::before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+.crt {
+  animation: textShadow 1.6s infinite;
+}
+/* CRT FILTER: https://aleclownes.com/2017/02/01/crt-display.html */
