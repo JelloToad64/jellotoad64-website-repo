@@ -60,6 +60,20 @@
   }
 }
 
+.box ul,
+.box ol {
+  list-style: disc inside;
+  padding-left: 0;
+  margin: 0 0 1rem 0;
+}
+
+.box li {
+  color: #d4faff; /* Cyan text */
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  text-shadow: 0 0 6px #00ffe6; /* Cyan glow */
+}
+
 body {
   background: linear-gradient(270deg, #2a003f, #0d001a, #350040, #0d001a);
   background-size: 600% 600%;
@@ -148,11 +162,17 @@ max-height: 400px;
   transition: transform 0.2s ease;
 }
 
-.box h1 {
+.box h1{
   color: #00ffe6;
   text-shadow: 0 0 8px #00ffe6;
   margin-bottom: 1rem;
   font-size: 1.6rem;
+}
+
+.box h4{
+  color: #00ffe6;
+  text-shadow: 0 0 8px #00ffe6;
+  margin-bottom: 1rem;
 }
 
 .box p {
@@ -183,6 +203,12 @@ max-height: 400px;
   background: #00cfc9;
   transform: scale(1.03);
 }
+
+.button:active {
+  background: #6bfff0;
+  transform: scale(0.97);
+}
+
 
 /* CRT FILTER: https://aleclownes.com/2017/02/01/crt-display.html */
 
