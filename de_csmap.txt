@@ -1,0 +1,12 @@
+Imagine a large square.
+
+In on corner is T spawn, and on the opposote, CT spawn.
+
+Site A and and Site B, when seen from above, look close to each other. But in actual gameplay, are not. When seen from the side, theya are at diffent heights, and you cant jump down to the lower site. Both sites are located around the middle of this quare. 
+
+For the Ts, a main path to both sites is a large tunnel, where a staircase takes them to an upperlevel, on the path to A, or stay low on the path to B, there is cover in the tunnel to block off sniper sights towards the staircase, and in the tunnel.
+
+While you cannot shoot or jump to Site B from Site A, there is a ladder on the roof of Site B, allowing quick access to B from A. The ladder is in a seperate room, to minimise sniper sights on B. Cover for Ts are on site be facing towards CT spawn, inculdeing the door out of ladder room. (if crouched, head will be exposed when walking)
+
+Inspied by Vertigo, the tunnel belongs to a path that can take the Ts to either Site A or B. However, there are 2 altarnates paths. One to A, and one to B. The alt path to B can also serve as an alt path to A through CT spawn. (Slightly inspired by Overpass Site A being on CT spawn)
+

@@ -2,6 +2,11 @@
 * {
   box-sizing: border-box;
 }
+
+.box, .navbar, .main-content {
+  cursor: default;
+}
+
 .navbar {
   position: fixed;            /* Stick it to the top */
   top: 0;
@@ -145,8 +150,6 @@ body {
 
 /* === Neon Boxes === */
 .box {
-max-width: 400px;
-max-height: 400px;
   background: #1a1a1a;
   border: 5px solid #c84fff;        /* Purple border */
   border-left-color: #00ffe6;       /* Cyan left border only */
@@ -182,7 +185,7 @@ max-height: 400px;
   margin-bottom: 1.5rem;
 }
 
-/* === Neon Buttons (Cyan) === */
+/* DEFAULT BUTTON */
 .button {
   display: block;
   width: 100%;
@@ -209,6 +212,62 @@ max-height: 400px;
   transform: scale(0.97);
 }
 
+/* YOUTUBE */
+.button.youtube {
+  background: #ff0000;
+  border-color: #ff0000;
+  color: #ffffff;
+  box-shadow: 0 0 12px #ff0000, 0 0 24px #ff000080;
+}
+.button.youtube:hover {
+  background: #cc0000;
+}
+.button.youtube:active {
+  background: #ff4d4d;
+}
+
+/* TWITCH */
+.button.twitch {
+  background: #9146ff;
+  border-color: #9146ff;
+  box-shadow: 0 0 12px #9146ff, 0 0 24px #9146ff80;
+}
+.button.twitch:hover {
+  background: #7c3aed;
+}
+.button.twitch:active {
+  background: #b88cff;
+}
+
+/* STEAM */
+.button.steam {
+  background: #1b2838;
+  border-color: #1b2838;
+  color: #ffffff;
+  box-shadow: 0 0 12px #66c0f4, 0 0 24px #66c0f480;
+}
+.button.steam:hover {
+  background: #2a475e;
+}
+.button.steam:active {
+  background: #3c6e91;
+}
+
+/* TETR.IO */
+.button.tetrio {
+  background: #39ff14; /* Bright neon green */
+  border-color: #39ff14;
+  box-shadow: 0 0 12px #39ff14, 0 0 24px #39ff1480;
+  color: #0d0d0d;
+}
+
+.button.tetrio:hover {
+  background: #2fe600;
+}
+
+.button.tetrio:active {
+  background: #7fff6b;
+}
 
 /* CRT FILTER: https://aleclownes.com/2017/02/01/crt-display.html */
 
