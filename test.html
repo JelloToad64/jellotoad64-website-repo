@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Font Showcase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron&family=Press+Start+2P&family=Share+Tech+Mono&family=Silkscreen&family=VT323&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000;
+      color: #0ff;
+      font-family: sans-serif;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .font-box {
+      background: #111;
+      border-left: 6px solid #0ff;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #8a2be2;
+      padding: 1rem 2rem;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    .font-name {
+      color: #8a2be2;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+
+    .orbitron { font-family: 'Orbitron', sans-serif; }
+    .share-tech { font-family: 'Share Tech Mono', monospace; }
+    .audiowide { font-family: 'Audiowide', cursive; }
+    .vt323 { font-family: 'VT323', monospace; }
+    .press-start { font-family: 'Press Start 2P', cursive; }
+    .silkscreen { font-family: 'Silkscreen', sans-serif; }
+
+    .preview-text {
+      font-size: 1.5rem;
+    }
+
+    .press-start .preview-text,
+    .silkscreen .preview-text {
+      font-size: 1rem;
+    }
+/* === CRT Filter === */
+@keyframes flicker {
+  0%   { opacity: 0.27861; }
+  5%   { opacity: 0.34769; }
+  10%  { opacity: 0.23604; }
+  15%  { opacity: 0.90626; }
+  20%  { opacity: 0.18128; }
+  25%  { opacity: 0.83891; }
+  30%  { opacity: 0.65583; }
+  35%  { opacity: 0.67807; }
+  40%  { opacity: 0.26559; }
+  45%  { opacity: 0.84693; }
+  50%  { opacity: 0.96019; }
+  55%  { opacity: 0.08594; }
+  60%  { opacity: 0.20313; }
+  65%  { opacity: 0.71988; }
+  70%  { opacity: 0.53455; }
+  75%  { opacity: 0.37288; }
+  80%  { opacity: 0.71428; }
+  85%  { opacity: 0.70419; }
+  90%  { opacity: 0.7003; }
+  95%  { opacity: 0.36108; }
+  100% { opacity: 0.24387; }
+}
+
+@keyframes textShadow {
+  0%   { text-shadow: 0.44px 0 rgba(0,30,255,0.5), -0.44px 0 rgba(255,0,80,0.3), 0 0 3px; }
+  50%  { text-shadow: 3.48px 0 rgba(0,30,255,0.5), -3.48px 0 rgba(255,0,80,0.3), 0 0 3px; }
+  100% { text-shadow: 2.62px 0 rgba(0,30,255,0.5), -2.62px 0 rgba(255,0,80,0.3), 0 0 3px; }
+}
+
+.crt::after {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  animation: flicker 0.15s infinite;
+}
+
+.crt::before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+              linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+.crt {
+  animation: textShadow 1.6s infinite;
+}
+
+  </style>
+</head>
+<body>
+<div class="crt">
+
+  <div class="font-box orbitron">
+    <div class="font-name">Orbitron</div>
+    <div class="preview-text">The quick brown fox jumps over the lazy dog.</div>
+  </div>
+
+  <div class="font-box share-tech">
+    <div class="font-name">Share Tech Mono</div>
+    <div class="preview-text">The quick brown fox jumps over the lazy dog.</div>
+  </div>
+
+  <div class="font-box audiowide">
+    <div class="font-name">Audiowide</div>
+    <div class="preview-text">The quick brown fox jumps over the lazy dog.</div>
+  </div>
+
+  <div class="font-box vt323">
+    <div class="font-name">VT323</div>
+    <div class="preview-text">The quick brown fox jumps over the lazy dog.</div>
+  </div>
+
+  <div class="font-box press-start">
+    <div class="font-name">Press Start 2P</div>
+    <div class="preview-text">The quick brown fox jumps over the lazy dog.</div>
+  </div>
+
+  <div class="font-box silkscreen">
+    <div class="font-name">Silkscreen</div>
+    <div class="preview-text">The quick brown fox jumps over the lazy dog.</div>
+  </div>
+</div>
+</body>
+</html>
