@@ -29,16 +29,17 @@
       <div class="box">
         <h1>Tetris</h1>
         <p>I play Tetris Effect, and Tetr.io. I also ocassionaly play Tetris for the NES.</p>
-	<p style="font-size: 12px;">Manually updated untill I use Tetr.io API.<br>As of July 24, 2025:</p>
-        <div class="tetrio-stats">
-    	  <ul>
-      	  <li><span class="label">Level:</span> <span class="value">92</span></li>
-      	  <li><span class="label">40L PB:</span> <span class="value">1:53.395</span></li>
-      	  <li><span class="label">Blitz PB:</span> <span class="value">32,474</span></li>
-       	  <li><span class="label">Tetra League Rank:</span> <span class="value">C-</span></li>
-          <li><span class="label">TR:</span> <span class="value">1,468</span></li>
-          </ul>
-        </div>
+	<h4>Statcard</h4>
+        <div class="tetrio-stats" id="tetrio-stats">
+  <ul>
+    <li><span class="label">Zen Level:</span> <span class="value" id="accountLevel">Loading...</span></li>
+    <li><span class="label">40L PB:</span> <span class="value" id="time40L">Loading...</span></li>
+    <li><span class="label">Blitz PB:</span> <span class="value" id="blitzScore">Loading...</span></li>
+    <li><span class="label">Tetra League Rank:</span> <span class="value" id="leagueRank">Loading...</span></li>
+    <li><span class="label">TR:</span> <span class="value" id="leagueTR">Loading...</span></li>
+  </ul>
+</div>
+
         <a class="button tetrio" target="_blank" href="https://ch.tetr.io/u/toad64">Live Tetr.io Stats</a>	
       </div>
       <div class="box">
@@ -57,5 +58,44 @@
         <div class="box"><h1>empty box 2</h1></div>
       </div>
     </div>
+<script>
+  function formatTime(ms) {
+    if (ms === undefined || ms === null) return 'N/A';
+    const totalSeconds = Math.floor(ms / 1000);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    const milliseconds = ms % 1000;
+    return `${minutes}:${seconds.toString().padStart(2, '0')}.${milliseconds.toString().padStart(3, '0')}`;
+  }
+
+  async function fetchTetrioStats() {
+    try {
+      const res = await fetch('https://tetr-io-proxy.onrender.com/toad64');
+      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+
+      const data = await res.json();
+
+      const leagueRank = data.data.league?.rank || 'N/A';
+      const leagueTR = data.data.league?.tr !== undefined ? data.data.league.tr.toFixed(2) : 'N/A';
+      const blitzScore = data.data.blitz?.record?.p?.pri || 'N/A';
+      const finalTimeMs = data.data["40l"]?.record?.results?.stats?.finaltime;
+      const time40L = formatTime(finalTimeMs);
+      const accountLevel = data.data.zen?.level || 'N/A';
+
+      document.getElementById('leagueRank').textContent = leagueRank;
+      document.getElementById('leagueTR').textContent = leagueTR;
+      document.getElementById('blitzScore').textContent = blitzScore;
+      document.getElementById('time40L').textContent = time40L;
+      document.getElementById('accountLevel').textContent = accountLevel;
+    } catch (e) {
+      console.error(e);
+      const container = document.getElementById('tetrio-stats');
+      container.innerHTML = `<li>Error loading stats: ${e.message}</li>`;
+    }
+  }
+
+  fetchTetrioStats();
+</script>
+
   </body>
 </html>
