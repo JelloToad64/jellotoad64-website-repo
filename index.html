@@ -79,20 +79,25 @@
       const data = await res.json();
 
       const leagueRank = data.data.league?.rank || 'N/A';
-      const leagueTR = data.data.league?.tr !== undefined ? data.data.league.tr.toFixed(2) : 'N/A';
-      const blitzScore = data.data.blitz?.record?.p?.pri || 'N/A';
+      const leagueTRValue = data.data.league?.tr;
+      const leagueTR = leagueTRValue !== undefined ? leagueTRValue.toFixed(2).toLocaleString() : 'N/A';
+
+      const blitzRaw = data.data.blitz?.record?.p?.pri;
+      const blitzScore = blitzRaw !== undefined ? blitzRaw.toLocaleString() : 'N/A';
+
       const finalTimeMs = data.data["40l"]?.record?.results?.stats?.finaltime;
       const time40L = formatTime(finalTimeMs);
-      const accountLevel = data.data.zen?.level || 'N/A';
+
+      const accountLevelRaw = data.data.zen?.level;
+      const accountLevel = accountLevelRaw !== undefined ? accountLevelRaw.toLocaleString() : 'N/A';
 
       if (leagueRank !== 'N/A') {
-  const rankImage = document.getElementById('leagueImage');
-  rankImage.src = `https://tetr.io/res/league-ranks/${leagueRank}.png`;
-  rankImage.alt = `${leagueRank} Rank Icon`;
-}
+        const rankImage = document.getElementById('leagueImage');
+        rankImage.src = `https://tetr.io/res/league-ranks/${leagueRank}.png`;
+        rankImage.alt = `${leagueRank} Rank Icon`;
+        rankImage.title = leagueRank;
+      }
 
-
-      
       document.getElementById('leagueTR').textContent = leagueTR;
       document.getElementById('blitzScore').textContent = blitzScore;
       document.getElementById('time40L').textContent = time40L;
@@ -106,6 +111,7 @@
 
   fetchTetrioStats();
 </script>
+
 
   </body>
 </html>
