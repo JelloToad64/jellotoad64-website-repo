@@ -35,7 +35,10 @@
     <li><span class="label">Zen Level:</span> <span class="value" id="accountLevel">Loading...</span></li>
     <li><span class="label">40L PB:</span> <span class="value" id="time40L">Loading...</span></li>
     <li><span class="label">Blitz PB:</span> <span class="value" id="blitzScore">Loading...</span></li>
-    <li><span class="label">Tetra League Rank:</span> <span class="value" id="leagueRank">Loading...</span></li>
+    <li>
+  <span class="label">Tetra League Rank:</span>
+  <img id="leagueImage" src="" alt="Loading..." style="height: 1em; vertical-align: middle; margin-left: 8px;" />
+</li>
     <li><span class="label">TR:</span> <span class="value" id="leagueTR">Loading...</span></li>
   </ul>
 </div>
@@ -82,7 +85,14 @@
       const time40L = formatTime(finalTimeMs);
       const accountLevel = data.data.zen?.level || 'N/A';
 
-      document.getElementById('leagueRank').textContent = leagueRank;
+      if (leagueRank !== 'N/A') {
+  const rankImage = document.getElementById('leagueImage');
+  rankImage.src = `https://tetr.io/res/league-ranks/${leagueRank}.png`;
+  rankImage.alt = `${leagueRank} Rank Icon`;
+}
+
+
+      
       document.getElementById('leagueTR').textContent = leagueTR;
       document.getElementById('blitzScore').textContent = blitzScore;
       document.getElementById('time40L').textContent = time40L;

@@ -271,6 +271,15 @@ body {
   text-shadow: 0 0 6px #39ff14;
 }
 
+/* Images */
+img{
+  height: 1.2em; 
+  vertical-align: middle; 
+  margin-left: 8px; 
+  position: relative; 
+  top: 5px;
+}
+
 /* === Animations === */
 @keyframes scrollBackground {
   0%   { background-position: 0% 50%; }
