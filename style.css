@@ -271,6 +271,29 @@ body {
   text-shadow: 0 0 6px #39ff14;
 }
 
+/* === Github button === */
+
+.button.github {
+  background: #24292e; /* GitHub dark gray */
+  border-color: #6cc644; /* GitHub green */
+  color: #cdd9e5;
+  box-shadow: 0 0 12px #6cc644aa, 0 0 24px #6cc64455;
+}
+
+.button.github:hover {
+  background: #2ea44f; /* brighter GitHub green on hover */
+  border-color: #2ea44f;
+  color: #ffffff;
+  box-shadow: 0 0 16px #2ea44fcc, 0 0 32px #2ea44f99;
+}
+
+.button.github:active {
+  background: #1b5e20;
+  border-color: #1b5e20;
+  color: #d4faff;
+  box-shadow: 0 0 8px #1b5e20cc, 0 0 16px #1b5e2099;
+}
+
 /* Images */
 img{
   height: 1.2em; 
