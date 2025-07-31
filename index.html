@@ -5,12 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+  // Apply kill-power class immediately if saved
+  if (localStorage.getItem('killPower') === 'true') {
+    document.documentElement.classList.add('kill-power');
+  }
+</script>
   </head>
   <body>
     <div class="crt">
 
     <div class="navbar">
       <div class="logo">Toad64</div>
+      <div class="settings-dropdown">
+  <button id="settingsToggleBtn" aria-haspopup="true" aria-expanded="false">⚙️ Settings ▼</button>
+  <div class="dropdown-menu" role="menu" aria-label="Settings Menu">
+    <label>
+      <input type="checkbox" id="crtToggle" checked>
+      Enable CRT Filter
+    </label>
+    <button id="killPowerBtn" class="button small">Power Down</button>
+  </div>
+</div>
     </div>
     <div class="background"></div>
     <div class="container">
@@ -20,10 +36,8 @@
 	<h4>Current random things</h4>
   <ul>
     <li>Creating horror mod(?) for Half-Life 2</li>
-    <li>Messing around with devices on premade Fortnite map</li>
     <li>Designing Glock-18 Skin for Counterstrike 2</li>
     <li>Working this website</li>
-    <li>Implementing Tetr.io API stats</li>
   </ul>
 </div>
       <div class="box">
@@ -61,57 +75,6 @@
         <div class="box"><h1>empty box 2</h1></div>
       </div>
     </div>
-<script>
-  function formatTime(ms) {
-    if (ms === undefined || ms === null) return 'N/A';
-    const totalSeconds = Math.floor(ms / 1000);
-    const minutes = Math.floor(totalSeconds / 60);
-    const seconds = totalSeconds % 60;
-    const milliseconds = ms % 1000;
-    return `${minutes}:${seconds.toString().padStart(2, '0')}.${milliseconds.toString().padStart(3, '0')}`;
-  }
-
-  async function fetchTetrioStats() {
-    try {
-      const res = await fetch('https://tetr-io-proxy.onrender.com/toad64');
-      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-
-      const data = await res.json();
-
-      const leagueRank = data.data.league?.rank || 'N/A';
-      const leagueTRValue = data.data.league?.tr;
-      const leagueTR = leagueTRValue !== undefined ? leagueTRValue.toFixed(2).toLocaleString() : 'N/A';
-
-      const blitzRaw = data.data.blitz?.record?.p?.pri;
-      const blitzScore = blitzRaw !== undefined ? blitzRaw.toLocaleString() : 'N/A';
-
-      const finalTimeMs = data.data["40l"]?.record?.results?.stats?.finaltime;
-      const time40L = formatTime(finalTimeMs);
-
-      const accountLevelRaw = data.data.zen?.level;
-      const accountLevel = accountLevelRaw !== undefined ? accountLevelRaw.toLocaleString() : 'N/A';
-
-      if (leagueRank !== 'N/A') {
-        const rankImage = document.getElementById('leagueImage');
-        rankImage.src = `https://tetr.io/res/league-ranks/${leagueRank}.png`;
-        rankImage.alt = `${leagueRank} Rank Icon`;
-        rankImage.title = leagueRank;
-      }
-
-      document.getElementById('leagueTR').textContent = leagueTR;
-      document.getElementById('blitzScore').textContent = blitzScore;
-      document.getElementById('time40L').textContent = time40L;
-      document.getElementById('accountLevel').textContent = accountLevel;
-    } catch (e) {
-      console.error(e);
-      const container = document.getElementById('tetrio-stats');
-      container.innerHTML = `<li>Error loading stats: ${e.message}</li>`;
-    }
-  }
-
-  fetchTetrioStats();
-</script>
-
-
+    <script src="script.js"></script>
   </body>
 </html>

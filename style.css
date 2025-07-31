@@ -318,9 +318,9 @@ img{
 }
 
 @keyframes textShadow {
-  0%   { text-shadow: 0.44px 0 rgba(0,30,255,0.5), -0.44px 0 rgba(255,0,80,0.3), 0 0 3px; }
-  50%  { text-shadow: 3.48px 0 rgba(0,30,255,0.5), -3.48px 0 rgba(255,0,80,0.3), 0 0 3px; }
-  100% { text-shadow: 2.62px 0 rgba(0,30,255,0.5), -2.62px 0 rgba(255,0,80,0.3), 0 0 3px; }
+  0%   { text-shadow: 0.3px 0 rgba(0,30,255,0.4), -0.3px 0 rgba(255,0,80,0.25), 0 0 2.5px; }
+  50%  { text-shadow: 2px 0 rgba(0,30,255,0.4), -2px 0 rgba(255,0,80,0.25), 0 0 2.5px; }
+  100% { text-shadow: 1.6px 0 rgba(0,30,255,0.4), -1.6px 0 rgba(255,0,80,0.25), 0 0 2.5px; }
 }
 
 .crt::after {
@@ -354,5 +354,184 @@ img{
 }
 
 .crt {
-  animation: textShadow 1.6s infinite;
+  animation: textShadow 4s ease-in-out infinite;
+}
+
+.settings-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.settings-dropdown button {
+  background: transparent;
+  border: none;
+  color: #c84fff;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.settings-dropdown button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.settings-dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 125%;
+  right: 0;
+  background: #0d001a;
+  border: 1px solid #c84fff;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  min-width: 160px;
+  box-shadow: 0 0 10px #c84fff88;
+  z-index: 1500;
+}
+
+.settings-dropdown .dropdown-menu label {
+  color: #f8f0ff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.settings-dropdown .dropdown-menu input[type="checkbox"] {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+/* Show dropdown when button is active */
+.settings-dropdown.open .dropdown-menu {
+  display: block;
+}
+
+/* === KILL THE POWER MODE === */
+html.kill-power body,
+body.kill-power {
+  animation: none !important;
+  background: #111 !important;
+  background-size: auto !important;
+  color: #ccc !important;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+body.kill-power .background {
+  background-color: #111 !important;  /* or #000 for pure black */
+}
+
+body.kill-power .background::after {
+  animation: none !important;
+  background-image: none !important;
+  opacity: 0 !important;
+}
+
+body.kill-power .navbar {
+  background: #222 !important;
+  border-color: #555 !important;
+  box-shadow: none !important;
+}
+
+body.kill-power .navbar .logo,
+body.kill-power .navbar nav a {
+  color: #999 !important;
+  text-shadow: none !important;
+}
+
+body.kill-power .box {
+  border-color: #444 !important;
+  box-shadow: none !important;
+  background: #222 !important;
+  color: #ccc !important;
+}
+
+body.kill-power .box h1,
+body.kill-power .box h4,
+body.kill-power .box p,
+body.kill-power .box li {
+  color: #ccc !important;
+  text-shadow: none !important;
+}
+
+body.kill-power .button {
+  box-shadow: none !important;
+  background: #555 !important;
+  border-color: #666 !important;
+  color: #ccc !important;
+  transition: background 0.3s ease;
+}
+
+body.kill-power .button:hover {
+  background: #444 !important;
+  color: #eee !important;
+}
+
+body.kill-power .tetrio-stats {
+  background: #222 !important;
+  border-color: #555 !important;
+  box-shadow: none !important;
+  color: #ccc !important;
+  text-shadow: none !important;
+}
+
+body.kill-power .tetrio-stats ul,
+body.kill-power .tetrio-stats li,
+body.kill-power .tetrio-stats .label,
+body.kill-power .tetrio-stats .value {
+  color: #ccc !important;
+  text-shadow: none !important;
+}
+
+body.kill-power .tetrio-stats img {
+  filter: grayscale(100%) brightness(70%) !important;
+}
+
+body.kill-power .crt {
+  animation: none !important;
+}
+
+body.kill-power .crt::after,
+body.kill-power .crt::before {
+  display: none !important;
+}
+
+/* === Settings dropdown visible but muted === */
+body.kill-power .settings-dropdown button {
+  color: #ccc !important;
+  text-shadow: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body.kill-power .settings-dropdown .dropdown-menu {
+  background: #222 !important;
+  border-color: #555 !important;
+  box-shadow: none !important;
+  color: #ccc !important;
+}
+
+body.kill-power .settings-dropdown .dropdown-menu label {
+  color: #ccc !important;
+  text-shadow: none !important;
+}
+
+body.kill-power .settings-dropdown .dropdown-menu input[type="checkbox"] {
+  accent-color: #666 !important;
+}
+
+/* Optional smaller button style for Kill the Power button */
+.button.small {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+  width: 8rem;
+  border: 2px solid #aaa;        /* solid neutral border */
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  text-shadow: none;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
